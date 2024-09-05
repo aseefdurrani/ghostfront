@@ -12,7 +12,7 @@ import {
 
 const Navbar = () => {
   const router = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const { isSignedIn } = useUser();
   const { signOut } = useClerk();
@@ -21,7 +21,7 @@ const Navbar = () => {
   const handleHome = () => {
     router.push("/");
   };
-  
+
   const handleAbout = () => {
     router.push("/about");
   };
@@ -35,7 +35,7 @@ const Navbar = () => {
   // call makeAuthenticatedRequest wherever you need to make backend requests that require authentication
   const makeAuthenticatedRequest = async (
     endpoint: string,
-    options: RequestInit = {}
+    options: RequestInit = {},
   ) => {
     try {
       // Retrieve the token
@@ -62,10 +62,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar fixed left-1/2 top-8 flex w-[90vw] max-w-[60vw] -translate-x-1/2 transform items-center justify-between rounded-full bg-customNavbar p-3 backdrop-blur-md md:justify-center md:w-[60vw]">
-      <div className="navbar-start">
+    <div className="navbar fixed left-0 right-0 top-8 mx-auto w-[95vw] max-w-[95vw] items-center justify-between rounded-full bg-customNavbar p-3 backdrop-blur-md md:w-[60vw] md:max-w-[60vw]">
+      <div className="navbar-start flex items-center space-x-4">
         <a
-          className="btn btn-ghost text-xl font-medium text-white flex items-center"
+          className="btn btn-ghost flex items-center text-xl font-medium text-white"
           onClick={handleHome}
         >
           <Image
@@ -78,12 +78,22 @@ const Navbar = () => {
           <span className="hidden md:inline">GhostLink</span>
         </a>
       </div>
-      <div className="navbar-middle">
-          <button className={`btn border-none text-white font-medium text-xl ${pathname === "/about" ? "bg-[rgba(255,255,255,0.1)] border-none rounded-full" : "btn-ghost"}`} onClick={handleAbout}>About</button>
+
+      <div className="navbar-center flex flex-grow justify-center">
+        <button
+          className={`btn border-none text-xl font-medium text-white ${
+            pathname === "/about"
+              ? "rounded-full border-none bg-[rgba(255,255,255,0.1)]"
+              : "btn-ghost"
+          }`}
+          onClick={handleAbout}
+        >
+          About
+        </button>
       </div>
 
       <div className="navbar-end flex space-x-2">
-        <button className="btn btn-circle btn-ghost text-black md:hidden">
+        <button className="btn btn-circle btn-ghost text-white md:hidden">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,10 +113,7 @@ const Navbar = () => {
           </div>
         </button>
         <div className="dropdown dropdown-end">
-          <button
-            tabIndex={0}
-            className="btn btn-circle btn-ghost text-black"
-          >
+          <button tabIndex={0} className="btn btn-circle btn-ghost text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -128,9 +135,9 @@ const Navbar = () => {
           >
             {
               <li>
-              <a >Coming soon!</a>
-              </li>            
-            /* {isSignedIn ? (
+                <a>Coming soon!</a>
+              </li>
+              /* {isSignedIn ? (
               <>
                 <li>
                   <a href="/uploadVideo">Make a LinkedIn Post</a>
@@ -152,7 +159,8 @@ const Navbar = () => {
                   </SignInButton>
                 </li>
               </>
-            )} */}
+            )} */
+            }
           </ul>
         </div>
       </div>
