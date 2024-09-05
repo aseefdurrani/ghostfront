@@ -93,7 +93,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex space-x-2">
-        <button className="btn btn-circle btn-ghost text-white md:hidden">
+        {/* <button className="btn btn-circle btn-ghost text-white">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const Navbar = () => {
             </svg>
             <span className="badge indicator-item badge-primary badge-xs"></span>
           </div>
-        </button>
+        </button> */}
         <div className="dropdown dropdown-end">
           <button tabIndex={0} className="btn btn-circle btn-ghost text-white">
             <svg
